@@ -7,12 +7,12 @@ const rds = new SL.AWS.RDS(connectionManager);
 exports.handler = function (event, context, callback) {
 
 
-	// You must always end/destroy the DB connection after it's used
-	rds.beginTransaction({
-		instanceIdentifier: 'test'
-	}, function (error, connection) {
-		if (error) { throw err; }
-	});
+	// // You must always end/destroy the DB connection after it's used
+	// rds.beginTransaction({
+	// 	instanceIdentifier: 'test'
+	// }, function (error, connection) {
+	// 	if (error) { throw err; }
+	// });
 
 
 	// callback(null, 'Successfully executed');
