@@ -1,9 +1,9 @@
 let AWS = require('aws-sdk');
-
+const sqs = new SL.AWS.SQS(AWS);
 let connectionManager = require('./ConnectionManager');
 let SL = require('@slappforge/slappforge-sdk');
 const rds = new SL.AWS.RDS(connectionManager);
-const sqs = new SL.AWS.SQS(AWS);
+
 exports.handler = function (event, context, callback) {
 
 	// You must always end/destroy the DB connection after it's used
