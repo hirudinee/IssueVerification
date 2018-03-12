@@ -6,11 +6,11 @@ const rds = new SL.AWS.RDS(connectionManager);
 exports.handler = function (event, context, callback) {
 
 	// You must always end/destroy the DB connection after it's used
-	rds.beginTransaction({
-		instanceIdentifier: 'DBid'
-	}, function (error, connection) {
-		if (error) { throw err; }
-	});
+	// rds.beginTransaction({
+	// 	instanceIdentifier: 'DBid'
+	// }, function (error, connection) {
+	// 	if (error) { throw err; }
+	// });
 	sqs.receiveMessage({
 		QueueUrl: 'https://sqs.us-east-1.amazonaws.com/263248768798/sample',
 		AttributeNames: ['All'],
