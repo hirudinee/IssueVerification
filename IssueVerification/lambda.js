@@ -61,5 +61,27 @@ exports.handler = function (event, context, callback) {
 	});
 
 
+	sqs.receiveAndDeleteMessages({
+		QueueUrl: 'https://sqs.us-east-1.amazonaws.com/263248768798/sample',
+		AttributeNames: ['All'],
+		MaxNumberOfMessages: '1',
+		VisibilityTimeout: '30',
+		WaitTimeSeconds: '0',
+		MessageAttributeNames: ['sample']
+	}, function (receivedMessages) {
+		// implement received message filtering logic here and return filtered set of messages which 
+		// are allowed to delete in the next step
+		console.log(receivedMessages);
+		//return receivedMessages;
+	}, function (deleteSuccessData) {
+		// implement delete success state here
+		console.log(deleteSuccessData);
+	}, function (error) {
+		// implement error handling logic here
+		console.log(error);
+	});
+
+
+
 
 }
