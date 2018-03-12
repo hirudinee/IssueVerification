@@ -18,13 +18,21 @@ exports.handler = function (event, context, callback) {
 
 	// callback(null, 'Successfully executed');
 	sqs.sendMessage({
-		MessageBody: 'this is a test edit',
+		MessageBody: 'this is a test edit this sample',
 		QueueUrl: 'https://sqs.us-east-1.amazonaws.com/263248768798/sample',
 		DelaySeconds: '0',
 		MessageAttributes: {
 			"sample": {
 				"DataType": "String",
 				"StringValue": "test"
+			},
+			"test": {
+				"DataType": "Number",
+				"StringValue": "001"
+			},
+			"binary": {
+				"DataType": "Binary",
+				"BinaryValue": "001"
 			}
 		}
 	}, function (data) {
